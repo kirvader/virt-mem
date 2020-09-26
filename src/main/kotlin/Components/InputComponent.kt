@@ -3,7 +3,6 @@ package Components
 import java.io.File
 
 
-data class Act(val pages : List<Int>, val framesNumber : Int) {}
 
 
 // функция, которая проверяет аргументы на наличиеи на корректность
