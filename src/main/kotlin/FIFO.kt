@@ -32,10 +32,12 @@ fun executeFIFO(act : Act): MutableList<Int?> {
         }
         // Здесь все кадры заняты, поэтому находим первый элемент, который попал в оперативную память, выкидываем его и обновляем все что с ним было связано
         val removedPage = currentListOfPages.remove()
+
         substitutionsList.add(frameForPage[removedPage])
         pageInFrame[frameForPage[removedPage]!!] = nextPage
         frameForPage[nextPage] = frameForPage[removedPage]
         currentListOfPages.add(nextPage)
+        frameForPage[removedPage] = null
     }
     return substitutionsList
 

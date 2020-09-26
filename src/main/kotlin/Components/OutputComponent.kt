@@ -24,5 +24,6 @@ fun outputLogsOfAlgo(logs : List<Int?>, needClear : Boolean, outputFile: File, t
             outputFile.appendText("Card number $value has been overwritten\n")
         }
     }
+    outputFile.appendText("\n\n")
     println("Test number $testNumber was saved to ${outputFile.path}")
 }

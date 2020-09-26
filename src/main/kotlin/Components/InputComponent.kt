@@ -2,9 +2,6 @@ package Components
 
 import java.io.File
 
-
-
-
 // функция, которая проверяет аргументы на наличиеи на корректность
 fun argsCheck(data : Array<String>) {
     // Если аргументов нет
@@ -56,12 +53,11 @@ fun readInputFile(fileName: String) : List<Act> {
     val userInput = readFile(fileName)
     var acts = mutableListOf<Act>()
     for (testNumber in 0..(userInput.size - 1) / 2) {
-        // TODO check input
         val splittedStringWithSizes = userInput[2 * testNumber].split(' ')
-        val splittedStringWithPagesNumbers = userInput[2 * testNumber + 1].split(' ')
-        checkActInput(splittedStringWithSizes, splittedStringWithPagesNumbers, testNumber)
+        val splittedStringWithPageNumbers = userInput[2 * testNumber + 1].split(' ')
+        checkActInput(splittedStringWithSizes, splittedStringWithPageNumbers, testNumber)
         val numberOfFrames : Int = splittedStringWithSizes[1].toInt()
-        val currentActPages : List<Int> = splittedStringWithPagesNumbers.map{it.toInt()}
+        val currentActPages : List<Int> = splittedStringWithPageNumbers.map{it.toInt()}
         acts.add(Act(currentActPages, numberOfFrames))
     }
     return acts
