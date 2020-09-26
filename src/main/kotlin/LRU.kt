@@ -15,7 +15,6 @@ fun findLRUFrame(lastAppealInFrame: List<Int?>) : Int {
 }
 
 fun executeLRU(act : Act): MutableList<Int?> {
-   // val frameForPage = MutableList<Int?>(act.pages.size) {null}
     val pageInFrame = MutableList<Int?>(act.framesNumber) {null}
     val lastAppealInFrame = MutableList<Int?>(act.framesNumber) {null}
     var substitutionsList = mutableListOf<Int?>()
@@ -30,16 +29,14 @@ fun executeLRU(act : Act): MutableList<Int?> {
         val indexOfEmptyFrame = findIndexOfEmptyFrame(pageInFrame)
         if (indexOfEmptyFrame != null) {
             pageInFrame[indexOfEmptyFrame] = nextPage
-            //frameForPage[nextPage] = indexOfEmptyFrame
             substitutionsList.add(indexOfEmptyFrame + 1)
             lastAppealInFrame[indexOfEmptyFrame] = indexInAct // indexInAct - это своеобразный секундомер
             continue
         }
-        // Найдем LRU
+        // Найдем LRU кадр и заменим страницу лежащую в нем на текущую
         val lruFrame = findLRUFrame(lastAppealInFrame)
         substitutionsList.add(lruFrame)
         pageInFrame[lruFrame] = nextPage
-        //frameForPage[nextPage] = lruFrame
         lastAppealInFrame[lruFrame] = indexInAct
     }
     return substitutionsList
