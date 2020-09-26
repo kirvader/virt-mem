@@ -1,0 +1,4 @@
+Logs for test 1
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Nothing changed

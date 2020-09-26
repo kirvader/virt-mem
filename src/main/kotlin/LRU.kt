@@ -5,8 +5,8 @@ import Components.Act
 // Функция которая находит кадр, в котором находится страница к которой дольше всего не было обращений
 // Внимание! Работает только на проверенном массиве, то есть когда все кадры забиты какими-то страницами
 fun findLRUFrame(lastAppealInFrame: List<Int?>) : Int {
-    var lru = 0
-    for (frame in 0..(lastAppealInFrame.size - 1)) {
+    var lru = 1
+    for (frame in 1..(lastAppealInFrame.size - 1)) {
         if (lastAppealInFrame[frame]!! < lastAppealInFrame[lru]!!) {
             lru = frame
         }
@@ -15,9 +15,10 @@ fun findLRUFrame(lastAppealInFrame: List<Int?>) : Int {
 }
 
 fun executeLRU(act : Act): MutableList<Int?> {
-    val pageInFrame = MutableList<Int?>(act.framesNumber) {null}
-    val lastAppealInFrame = MutableList<Int?>(act.framesNumber) {null}
+    val pageInFrame = MutableList<Int?>(act.framesNumber + 1) {null}
+    val lastAppealInFrame = MutableList<Int?>(act.framesNumber + 1) {null}
     var substitutionsList = mutableListOf<Int?>()
+
     for (indexInAct in (0..act.pages.size - 1)) {
         val nextPage = act.pages[indexInAct]
         // Если эта страница уже загружена, то ничего делать не нужно
@@ -29,7 +30,7 @@ fun executeLRU(act : Act): MutableList<Int?> {
         val indexOfEmptyFrame = findIndexOfEmptyFrame(pageInFrame)
         if (indexOfEmptyFrame != null) {
             pageInFrame[indexOfEmptyFrame] = nextPage
-            substitutionsList.add(indexOfEmptyFrame + 1)
+            substitutionsList.add(indexOfEmptyFrame)
             lastAppealInFrame[indexOfEmptyFrame] = indexInAct // indexInAct - это своеобразный секундомер
             continue
         }

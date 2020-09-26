@@ -3,8 +3,8 @@ package Components
 import java.io.File
 
 // Функция, которая задает путь до файла output.txt в той же папке что и входные данные
-fun createPathToOutputFile(InputFilename : String): File {
-    return File(InputFilename).resolve("../output.txt")
+fun createPathToOutputFile(InputFilename : String, outputFileEnding : String): File {
+    return File(InputFilename).resolve("../output$outputFileEnding.txt")
 }
 
 // функция, которая чистит файл
@@ -13,9 +13,16 @@ fun clearOutputFile(outputFile : File) {
 }
 
 // Вывод данных и сообщения о местоположении файла
-fun outputData(data : String, InputFilename: String, needClear : Boolean) {
-    val outputFile : File = createPathToOutputFile(InputFilename)
+fun outputLogsOfAlgo(logs : List<Int?>, needClear : Boolean, outputFile: File, testNumber : Int) {
     if (needClear) clearOutputFile(outputFile)
-    outputFile.appendText(data)
-    println("The answer was saved to ${outputFile.absolutePath}")
+    outputFile.appendText("Logs for test $testNumber\n")
+    for (value in logs) {
+        if (value == null) {
+            outputFile.appendText("Nothing changed\n")
+        }
+        else {
+            outputFile.appendText("Card number $value has been overwritten\n")
+        }
+    }
+    println("Test number $testNumber was saved to ${outputFile.path}")
 }
