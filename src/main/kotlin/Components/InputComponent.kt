@@ -34,12 +34,19 @@ fun checkActInput(splittedStringWithSizes : List<String>, splittedStringWithPage
         }
     }
     val numberOfValuesInSecondString = splittedStringWithSizes[0].toInt()
+    val numberOfFrames = splittedStringWithSizes[1].toInt()
+    if (numberOfFrames >= numberOfValuesInSecondString) {
+        error("Number of frames should be less than a number of pages")
+    }
     if (numberOfValuesInSecondString != splittedStringWithPagesNumbers.size) {
         error("In test number $testNumber on string ${testNumber * 2 + 1} quantity of values don't matches the first value in first string")
     }
-    for (string in splittedStringWithSizes) {
+    for (string in splittedStringWithPagesNumbers) {
         if (!checkIfStringIsNumber(string)) {
             error("String ${string} in test number $testNumber on string number ${testNumber * 2 + 1} is not numeric")
+        }
+        if (string.toInt() < 1 || string.toInt() > numberOfValuesInSecondString) {
+            error("String ${string} in test number $testNumber on string number ${testNumber * 2 + 1} is not in range from 1 to $numberOfValuesInSecondString")
         }
     }
 }
