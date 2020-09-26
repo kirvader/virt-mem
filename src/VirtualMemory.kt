@@ -1,3 +1,5 @@
+import Components.readInputFile
+
 fun main(args : Array<String>) {
-    print("memory is useful")
+    val acts = readInputFile(args[0])
 }
