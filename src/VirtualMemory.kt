@@ -1,7 +1,6 @@
-import Components.argsCheck
-import Components.createPathToOutputFile
-import Components.outputLogsOfAlgo
-import Components.readInputFile
+@file:JvmName("VirtualMemory")
+
+import Components.*
 
 fun main(args : Array<String>) {
     // Проверка аргументов
@@ -18,7 +17,7 @@ fun main(args : Array<String>) {
         outputLogsOfAlgo(resultsOfLRU, actNumber == 0, createPathToOutputFile(args[0], "LRU"), actNumber + 1)
         outputLogsOfAlgo(resultsOfOPT, actNumber == 0, createPathToOutputFile(args[0], "OPT"), actNumber + 1)
         // Вывод общего сравнения алгоритмов на данном тесте
-        println("On test number $actNumber:")
+        println("On test number ${actNumber + 1}:")
         println("FIFO algorithm made ${countSubstitutions(resultsOfFIFO)} substitutions")
         println("LRU algorithm made ${countSubstitutions(resultsOfLRU)} substitutions")
         println("OPT algorithm made ${countSubstitutions(resultsOfOPT)} substitutions")

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="OPTKtTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-09-27T20:40:37" hostname="DESKTOP-TUE115E" time="0.005">
+  <properties/>
+  <testcase name="executeOPTONTEST2Sample1()" classname="OPTKtTest" time="0.001"/>
+  <testcase name="executeOPTONTEST2Sample3()" classname="OPTKtTest" time="0.001"/>
+  <testcase name="findNextAppealAppealInEnd()" classname="OPTKtTest" time="0.001"/>
+  <testcase name="findOPTPageNoMoreAppeal()" classname="OPTKtTest" time="0.0"/>
+  <testcase name="findNextAppealWillNotAppeal()" classname="OPTKtTest" time="0.0"/>
+  <testcase name="findOPTPageElementWillAppearButNotNow()" classname="OPTKtTest" time="0.0"/>
+  <testcase name="findNextAppealAppealNext()" classname="OPTKtTest" time="0.0"/>
+  <testcase name="executeOPTONTEST1Sample1()" classname="OPTKtTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

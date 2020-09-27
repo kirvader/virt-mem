@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Components.InputComponentKtTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-09-27T20:40:37" hostname="DESKTOP-TUE115E" time="0.044">
+  <properties/>
+  <testcase name="readInputFileTestManySamples()" classname="Components.InputComponentKtTest" time="0.041"/>
+  <testcase name="readInputFileTestOneSample()" classname="Components.InputComponentKtTest" time="0.001"/>
+  <testcase name="checkIfStringIsNumber0()" classname="Components.InputComponentKtTest" time="0.0"/>
+  <testcase name="checkIfStringIsNumber12123()" classname="Components.InputComponentKtTest" time="0.0"/>
+  <testcase name="checkIfStringIsNumberWrong()" classname="Components.InputComponentKtTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

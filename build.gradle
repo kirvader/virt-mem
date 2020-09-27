@@ -12,7 +12,7 @@ repositories {
 }
 
 application {
-    mainClassName 'VirtualMemoryKt'
+    mainClassName 'VirtualMemory'
 }
 
 dependencies {
@@ -23,9 +23,9 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+    jvmArgs '--enable-preview'
 }
 
 sourceSets {
