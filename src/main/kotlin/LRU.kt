@@ -14,7 +14,8 @@ fun findLRUFrame(lastAppealInFrame: List<Int?>) : Int {
     return lru
 }
 
-fun executeLRU(act : Act): MutableList<Int?> {
+// Функция, которая симулирует работу LRU алгоритма
+fun executeLRU(act : Act): List<Int?> {
     val pageInFrame = MutableList<Int?>(act.framesNumber + 1) {null}
     val lastAppealInFrame = MutableList<Int?>(act.framesNumber + 1) {null}
     var substitutionsList = mutableListOf<Int?>()

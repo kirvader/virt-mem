@@ -17,14 +17,17 @@ fun argsCheck(data : Array<String>) {
     }
 }
 
+// Проверка строки на то, что она на самом деле число
 fun checkIfStringIsNumber(string : String): Boolean {
     return string.matches("-?\\d+(\\.\\d+)?".toRegex())
 }
 
+// Проверка очередного теста на соответствие входным данным
 fun checkActInput(splittedStringWithSizes : List<String>, splittedStringWithPagesNumbers : List<String>, testNumber : Int) {
-    if (splittedStringWithSizes.size != 2) {
+    if (splittedStringWithSizes.size != 2) { // В первой строке должны находиться только количества страниц и кадров
         error("Something is wrong with number of sizes in test $testNumber in string number ${testNumber * 2}")
     }
+    // Каждая из строк должна быть числом
     for (string in splittedStringWithSizes) {
         if (!checkIfStringIsNumber(string)) {
             error("String ${string} in test number $testNumber on string number ${testNumber * 2} is not numeric")
@@ -32,17 +35,14 @@ fun checkActInput(splittedStringWithSizes : List<String>, splittedStringWithPage
     }
     val numberOfValuesInSecondString = splittedStringWithSizes[0].toInt()
     val numberOfFrames = splittedStringWithSizes[1].toInt()
-    if (numberOfFrames >= numberOfValuesInSecondString) {
+    if (numberOfFrames >= numberOfValuesInSecondString) { // количество страниц должно быть больше количества кадров по условию
         error("Number of frames should be less than a number of pages")
     }
-    if (numberOfValuesInSecondString != splittedStringWithPagesNumbers.size) {
-        error("In test number $testNumber on string ${testNumber * 2 + 1} quantity of values don't matches the first value in first string")
-    }
     for (string in splittedStringWithPagesNumbers) {
-        if (!checkIfStringIsNumber(string)) {
+        if (!checkIfStringIsNumber(string)) { // всё должно быть числами
             error("String ${string} in test number $testNumber on string number ${testNumber * 2 + 1} is not numeric")
         }
-        if (string.toInt() < 1 || string.toInt() > numberOfValuesInSecondString) {
+        if (string.toInt() < 1 || string.toInt() > numberOfValuesInSecondString) { // Все числа во второй строке не должны превосходить количества страниц
             error("String ${string} in test number $testNumber on string number ${testNumber * 2 + 1} is not in range from 1 to $numberOfValuesInSecondString")
         }
     }
@@ -53,9 +53,13 @@ fun readInputFile(fileName: String) : List<Act> {
     val userInput = readFile(fileName)
     var acts = mutableListOf<Act>()
     for (testNumber in 0..(userInput.size - 1) / 2) {
+        // Тест состоит из двух строк: в первой строке размеры M и N, во второй строке последовательность обращений
         val splittedStringWithSizes = userInput[2 * testNumber].split(' ')
         val splittedStringWithPageNumbers = userInput[2 * testNumber + 1].split(' ')
+
+        // Проверка теста на правильность(соответствие входным данным)
         checkActInput(splittedStringWithSizes, splittedStringWithPageNumbers, testNumber)
+        // Парсинг
         val numberOfFrames : Int = splittedStringWithSizes[1].toInt()
         val currentActPages : List<Int> = splittedStringWithPageNumbers.map{it.toInt()}
         acts.add(Act(currentActPages, numberOfFrames))

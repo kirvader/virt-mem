@@ -12,7 +12,7 @@ fun clearOutputFile(outputFile : File) {
     outputFile.writeText("")
 }
 
-// Вывод данных и сообщения о местоположении файла
+// Вывод логов(подробной информации о симуляции алгоритма) и сообщения о местоположении файла
 fun outputLogsOfAlgo(logs : List<Int?>, needClear : Boolean, outputFile: File, testNumber : Int) {
     if (needClear) clearOutputFile(outputFile)
     outputFile.appendText("Logs for test $testNumber\n")

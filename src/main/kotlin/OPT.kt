@@ -1,5 +1,6 @@
 import Components.Act
 
+// Функция которая ищет страницу, в оперативной памяти, которую нужно заменить в соответствии с алгоритмом
 fun findOPTPage(nextAppeal : List<Int>, frameForPage : List<Int?>) : Int {
     var optimalPage = 1
     for (pageNumber in 1..(nextAppeal.size - 1)) {
@@ -11,6 +12,8 @@ fun findOPTPage(nextAppeal : List<Int>, frameForPage : List<Int?>) : Int {
     return optimalPage
 }
 
+// Функция, которая ищет следующее вхождение в последовательность обращений для переданной страницы
+// Если больше она не встретится, то возвращается индекс конца списка + 1(Бесконечность)
 fun findNextAppeal(page : Int, currentAppeal : Int, nextAppeal: List<Int>, act: Act): Int {
     var indexInAct = currentAppeal + 1
     while (indexInAct < act.pages.size && act.pages[indexInAct] != page) {
@@ -19,7 +22,8 @@ fun findNextAppeal(page : Int, currentAppeal : Int, nextAppeal: List<Int>, act: 
     return indexInAct
 }
 
-fun executeOPT(act : Act): MutableList<Int?> {
+// Функция симулирующая работу OPT алгоритма
+fun executeOPT(act : Act): List<Int?> {
     val pageInFrame = MutableList<Int?>(act.framesNumber + 1) {null}
     val frameForPage = MutableList<Int?>(act.pages.size + 1) {null}
     var substitutionsList = mutableListOf<Int?>()

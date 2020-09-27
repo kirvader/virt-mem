@@ -9,7 +9,8 @@ fun findIndexOfEmptyFrame(pageInFrame : List<Int?>): Int? {
     return null
 }
 
-fun executeFIFO(act : Act): MutableList<Int?> {
+// Функция, которая симулирует работу FIFO алгоритма
+fun executeFIFO(act : Act): List<Int?> {
     // Это очередь состоящая из страниц, которые занимают какой-то кадр
     val currentListOfPages : Queue<Int> = LinkedList<Int>()
     val frameForPage = MutableList<Int?>(act.pages.size + 1) {null}
