@@ -5,6 +5,10 @@ import Components.*
 fun main(args : Array<String>) {
     // Проверка аргументов
     argsCheck(args)
+    // Если тест нужно сгенерировать
+    if ((args.size == 2 && args[1] == "generate") || (args.size == 4)) {
+        generateTest(args)
+    }
     // Чтение входных данных из файла, указанного в аргументах
     val acts = readInputFile(args[0])
     for (actNumber in 0..(acts.size - 1)) {

@@ -8,12 +8,18 @@ fun argsCheck(data : Array<String>) {
     if (data.isEmpty()) {
         error("Args are empty!")
     }
-    if (data.size > 1) {
-        error("Too many args!")
+    if (data.size != 1 && data.size != 2 && data.size != 4) {
+        error("Quantity of arguments must be 1 or 2 or 4!")
     }
     // Если введенный пользователем путь не существует
-    if (!File(data[0]).exists()) {
+    if (data.size == 1 && !File(data[0]).exists()) {
         error("This path doesn't exist!")
+    }
+    if (data.size == 2 && data[1] != "generate") {
+        error("If you want to generate test with default sizes then you have to write generate as second argument!")
+    }
+    if (data.size == 4 && !checkIfStringIsNumber(data[1]) && !checkIfStringIsNumber(data[2]) && !checkIfStringIsNumber(data[3])) {
+        error("Second, third and fourth arguments should be integers!")
     }
 }
 
