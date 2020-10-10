@@ -1,4 +1,4 @@
-package Components
+package сomponents
 
 import java.io.File
 import kotlin.random.Random
@@ -21,7 +21,7 @@ fun generateTest(args : Array<String>) {
     outputFile.writeText("$numberOfDifferentPages $framesNumber\n")
     // Для правильного чтения
     if (pagesNumber > 0) outputFile.appendText(sequence[0].toString())
-    for (index in 1..(sequence.size - 1)) {
+    for (index in 1..(sequence.lastIndex)) {
         outputFile.appendText(" ${sequence[index]}")
     }
     println("Generated test was saved to ${args[0]}")

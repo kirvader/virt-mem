@@ -1,9 +1,8 @@
-import Components.readInputFile
+import сomponents.readInputFile
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Assertions.assertArrayEquals as assertArrayEquals
 
 internal class FIFOKtTest {
 

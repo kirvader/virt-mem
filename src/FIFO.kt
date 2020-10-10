@@ -1,9 +1,9 @@
-import Components.Act
+import сomponents.Act
 import java.util.*
 
 // Функция, которая по данным, о том какими страницами заняты кадры возвращает индекс первого свободного кадра
 fun findIndexOfEmptyFrame(pageInFrame : List<Int?>): Int? {
-    for (index in 1..(pageInFrame.size - 1)) {
+    for (index in 1..pageInFrame.lastIndex) {
         if (pageInFrame[index] == null) return index
     }
     return null

@@ -1,4 +1,4 @@
-import Components.readInputFile
+import сomponents.readInputFile
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

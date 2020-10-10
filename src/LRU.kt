@@ -1,10 +1,10 @@
-import Components.Act
+import сomponents.Act
 
 // Функция которая находит кадр, в котором находится страница к которой дольше всего не было обращений
 // Внимание! Работает только на проверенном массиве, то есть когда все кадры забиты какими-то страницами
 fun findLRUFrame(lastAppealInFrame: List<Int?>) : Int {
     var lru = 1
-    for (frame in 1..(lastAppealInFrame.size - 1)) {
+    for (frame in 1..lastAppealInFrame.lastIndex) {
         if (lastAppealInFrame[frame]!! < lastAppealInFrame[lru]!!) {
             lru = frame
         }
@@ -16,10 +16,10 @@ fun findLRUFrame(lastAppealInFrame: List<Int?>) : Int {
 fun executeLRU(act : Act): List<Int?> {
     val pageInFrame = MutableList<Int?>(act.framesNumber + 1) {null} // текущая страница в соответствующем кадре
     val frameForPage = MutableList<Int?>(act.pageNumber + 1) {null} // кадр в котором содержится данная страница
-    val lastAppealInFrames = MutableList<Int>(act.framesNumber + 1) {-1} // последнее вхождение страницы в соответствующем кадре в последовательность страниц
+    val lastAppealInFrames = MutableList(act.framesNumber + 1) {-1} // последнее вхождение страницы в соответствующем кадре в последовательность страниц
     var substitutionsList = mutableListOf<Int?>() // Запись симуляции
 
-    for (indexInAct in (0..act.pages.size - 1)) {
+    for (indexInAct in 0..act.pages.lastIndex) {
         val nextPage = act.pages[indexInAct]
         // Если эта страница уже загружена, то ничего делать не нужно
         if (frameForPage[nextPage] != null) {

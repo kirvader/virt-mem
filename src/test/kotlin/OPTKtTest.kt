@@ -1,9 +1,7 @@
-import Components.Act
-import Components.readInputFile
+import сomponents.Act
+import сomponents.readInputFile
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 internal class OPTKtTest {
 

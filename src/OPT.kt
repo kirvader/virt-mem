@@ -1,20 +1,20 @@
-import Components.Act
+import сomponents.Act
 
 // Функция которая ищет страницу, в оперативной памяти, которую нужно заменить в соответствии с алгоритмом
 fun findOPTPage(nextAppeal : List<Int>, frameForPage : List<Int?>) : Int {
-    var optimalPage = 1
-    while (optimalPage < frameForPage.size && frameForPage[optimalPage] == null) optimalPage++
-    for (pageNumber in 1..(nextAppeal.size - 1)) {
+    var optPage = 1
+    while (optPage < frameForPage.size && frameForPage[optPage] == null) optPage++
+    for (pageNumber in 1..nextAppeal.lastIndex) {
         if (frameForPage[pageNumber] == null) continue
-        if (nextAppeal[pageNumber] > nextAppeal[optimalPage]) {
-            optimalPage = pageNumber
+        if (nextAppeal[pageNumber] > nextAppeal[optPage]) {
+            optPage = pageNumber
         } else {
-            if (frameForPage[pageNumber]!! < frameForPage[optimalPage]!!) {
-                optimalPage = pageNumber
+            if (frameForPage[pageNumber]!! < frameForPage[optPage]!!) {
+                optPage = pageNumber
             }
         }
     }
-    return optimalPage
+    return optPage
 }
 
 // Функция, которая ищет следующее вхождение в последовательность обращений для переданной страницы
@@ -31,15 +31,15 @@ fun findNextAppeal(page : Int, currentAppeal : Int, act: Act): Int {
 fun executeOPT(act : Act): List<Int?> {
     val pageInFrame = MutableList<Int?>(act.framesNumber + 1) {null}
     val frameForPage = MutableList<Int?>(act.pageNumber + 1) {null}
-    var substitutionsList = mutableListOf<Int?>()
+    val substitutionsList = mutableListOf<Int?>()
     val nextAppeal = MutableList<Int>(act.pageNumber + 1) {act.pages.size}
-    for (indexInAct in (0..act.pages.size - 1)) {
+    for (indexInAct in (0..act.pages.lastIndex)) {
         val nextPage = act.pages[indexInAct]
         if (nextAppeal[nextPage] > indexInAct) {
             nextAppeal[nextPage] = indexInAct
         }
     }
-    for (indexInAct in (0..act.pages.size - 1)) {
+    for (indexInAct in (0..act.pages.lastIndex)) {
         val nextPage = act.pages[indexInAct]
         // Если эта страница уже загружена, то ничего делать не нужно
         if (frameForPage[nextPage] != null) {
@@ -57,7 +57,8 @@ fun executeOPT(act : Act): List<Int?> {
             continue
         }
 
-        // Если все кадры заняты, но нужно какой-то заменить, тогда найдем оптимальный(тот к которому дольше всех не будет обращений)
+        // Если все кадры заняты, но нужно какой-то заменить,
+        // тогда найдем оптимальный(тот к которому дольше всех не будет обращений)
 
         val optPage = findOPTPage(nextAppeal, frameForPage)
 

@@ -1,6 +1,6 @@
 @file:JvmName("VirtualMemory")
 
-import Components.*
+import сomponents.*
 
 fun main(args : Array<String>) {
     // Проверка аргументов
@@ -11,15 +11,18 @@ fun main(args : Array<String>) {
     }
     // Чтение входных данных из файла, указанного в аргументах
     val acts = readInputFile(args[0])
-    for (actNumber in 0..(acts.size - 1)) {
+    for (actNumber in 0..acts.lastIndex) {
         // Симуляция алгоритмов на данном примере
         val resultsOfFIFO = executeFIFO(acts[actNumber])
         val resultsOfLRU = executeLRU(acts[actNumber])
         val resultsOfOPT = executeOPT(acts[actNumber])
         // Вывод логов в отдельный файл для каждого алгоритма
-        outputLogsOfAlgo(resultsOfFIFO, actNumber == 0, createPathToOutputFile(args[0], "FIFO"), actNumber + 1)
-        outputLogsOfAlgo(resultsOfLRU, actNumber == 0, createPathToOutputFile(args[0], "LRU"), actNumber + 1)
-        outputLogsOfAlgo(resultsOfOPT, actNumber == 0, createPathToOutputFile(args[0], "OPT"), actNumber + 1)
+        outputLogsOfAlgo(resultsOfFIFO, actNumber == 0,
+                createPathToOutputFile(args[0], "FIFO"), actNumber + 1)
+        outputLogsOfAlgo(resultsOfLRU, actNumber == 0,
+                createPathToOutputFile(args[0], "LRU"), actNumber + 1)
+        outputLogsOfAlgo(resultsOfOPT, actNumber == 0,
+                createPathToOutputFile(args[0], "OPT"), actNumber + 1)
         // Вывод общего сравнения алгоритмов на данном тесте
         println("On test number ${actNumber + 1}:")
         println("FIFO algorithm made ${countSubstitutions(resultsOfFIFO)} substitutions")
@@ -28,9 +31,10 @@ fun main(args : Array<String>) {
         println() // перевод строки для лучшей видимости отдельных тестов
     }
 }
+
 // Функция, которая вычисляет количество замещений, по результату работа алгоритма
 fun countSubstitutions(results : List<Int?>) : Int {
-    var substitutions : Int = 0
+    var substitutions = 0
     for (result in results) {
         if (result != null) substitutions++
     }

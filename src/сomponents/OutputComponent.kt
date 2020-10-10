@@ -1,4 +1,4 @@
-package Components
+package сomponents
 
 import java.io.File
 
