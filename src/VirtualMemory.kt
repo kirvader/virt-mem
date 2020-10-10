@@ -15,9 +15,9 @@ fun main(args : Array<String>) {
         // Симуляция может пройти только если входные данные заданы верно.
         if (acts[actNumber].pageNumber != -1) {
             // Симуляция алгоритмов на данном примере
-            val resultsOfFIFO = executeFIFO(acts[actNumber])
-            val resultsOfLRU = executeLRU(acts[actNumber])
-            val resultsOfOPT = executeOPT(acts[actNumber])
+            val resultsOfFIFO = executeAlgorithm(acts[actNumber], Algorithms.FIFO)
+            val resultsOfLRU = executeAlgorithm(acts[actNumber], Algorithms.LRU)
+            val resultsOfOPT = executeAlgorithm(acts[actNumber], Algorithms.OPT)
 
             // Вывод логов в отдельный файл для каждого алгоритма
             outputLogsOfAlgo(resultsOfFIFO, actNumber == 0,
