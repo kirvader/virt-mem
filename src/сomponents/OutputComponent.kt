@@ -17,7 +17,7 @@ fun outputLogsOfAlgo(logs : List<Int?>, needClear : Boolean, outputFile: File, t
     if (needClear) clearOutputFile(outputFile)
     outputFile.appendText("Logs for test $testNumber\n")
     for (value in logs) {
-        if (value == null) {
+        if (value == 0) {
             outputFile.appendText("Nothing changed\n")
         }
         else {

@@ -8,14 +8,14 @@ internal class OPTKtTest {
     @Test
     fun findOPTPageNoMoreAppeal() {
         val nextAppealArray = listOf(5, 1, 2, 5, 3)
-        val frameForPageArray = listOf(null, 1, 2, 3, null)
+        val frameForPageArray = listOf(0, 1, 2, 3, 0)
         Assertions.assertEquals(findOPTPage(nextAppealArray, frameForPageArray), 3)
     }
 
     @Test
     fun findOPTPageElementWillAppearButNotNow() {
         val nextAppealArray = listOf(5, 1, 3, 2, 4)
-        val frameForPageArray = listOf(null, 1, 2, 3, null)
+        val frameForPageArray = listOf(0, 1, 2, 3, 0)
         Assertions.assertEquals(findOPTPage(nextAppealArray, frameForPageArray), 2)
     }
 
@@ -46,22 +46,22 @@ internal class OPTKtTest {
     @Test
     fun executeOPTONTEST1Sample1() { // Тест с циклической последовательностью обращений(см. тест 1)
         val acts = readInputFile("data/tests/test1.txt")
-        val actual : List<Int?> = executeOPT(acts[0])
-        val expected : List<Int?> = listOf(1, 2, 3, 4, 4, null, null, null, 3, null, null, null, 1, null, null)
+        val actual : List<Int> = executeOPT(acts[0])
+        val expected : List<Int> = listOf(1, 2, 3, 4, 4, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0)
         Assertions.assertEquals(expected, actual)
     }
     @Test
     fun executeOPTONTEST2Sample1() { // Тест, где есть места, когда не нужно что-то менять в FIFO(операция 1 типа)
         val acts = readInputFile("data/tests/test2.txt")
-        val actual : List<Int?> = executeOPT(acts[0])
-        val expected : List<Int?> = listOf(1, 2, 3, null, 3, null, null, null)
+        val actual : List<Int> = executeOPT(acts[0])
+        val expected : List<Int> = listOf(1, 2, 3, 0, 3, 0, 0, 0)
         Assertions.assertEquals(expected, actual)
     }
     @Test
     fun executeOPTONTEST2Sample3() { // Тест с миксованной последовательностью обращений(см. тест 2 пример 3)
         val acts = readInputFile("data/tests/test2.txt")
-        val actual : List<Int?> = executeOPT(acts[2])
-        val expected : List<Int?> = listOf(1, 2, 1, 1, null, 1, 1, 1)
+        val actual : List<Int> = executeOPT(acts[2])
+        val expected : List<Int> = listOf(1, 2, 1, 1, 0, 1, 1, 1)
         Assertions.assertEquals(expected, actual)
     }
 }

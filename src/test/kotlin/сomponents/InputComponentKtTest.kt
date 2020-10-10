@@ -1,22 +1,22 @@
 package сomponents
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 
 internal class InputComponentKtTest {
 
     @Test
     fun checkIfStringIsNumber12123() {
-        assertEquals(checkIfStringIsNumber("12123"), true)
+        Assertions.assertEquals(checkIfStringNumber("12123"), true)
     }
     @Test
     fun checkIfStringIsNumber0() {
-        assertEquals(checkIfStringIsNumber("0"), true)
+        Assertions.assertEquals(checkIfStringNumber("0"), true)
     }
     @Test
     fun checkIfStringIsNumberWrong() {
-        assertEquals(checkIfStringIsNumber("231T2"), false)
+        Assertions.assertEquals(checkIfStringNumber("231T2"), false)
     }
 
     @Test
@@ -25,7 +25,7 @@ internal class InputComponentKtTest {
         val frames = 4
         val pageNumber = 5
         val acts : List<Act> = listOf(Act(pages, frames, pageNumber))
-        assertEquals(acts, readInputFile("data/tests/test1.txt"))
+        Assertions.assertEquals(acts, readInputFile("data/tests/test1.txt"))
     }
     @Test
     fun readInputFileTestManySamples() {
@@ -39,6 +39,6 @@ internal class InputComponentKtTest {
         val frames3 = 2
         val pageNumber3 = 5
         val acts : List<Act> = listOf(Act(pages1, frames1, pageNumber1), Act(pages2, frames2, pageNumber2), Act(pages3, frames3, pageNumber3))
-        assertEquals(acts, readInputFile("data/tests/test2.txt"))
+        Assertions.assertEquals(acts, readInputFile("data/tests/test2.txt"))
     }
 }

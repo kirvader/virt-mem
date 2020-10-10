@@ -1,12 +1,84 @@
 Logs for test 1
 Card number 1 has been overwritten
 Card number 2 has been overwritten
-Card number 3 has been overwritten
+Card number 1 has been overwritten
 Nothing changed
 Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+
+
+Logs for test 2
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 3 has been overwritten
+Card number 4 has been overwritten
+Nothing changed
+Card number 1 has been overwritten
+Nothing changed
 Card number 3 has been overwritten
 Nothing changed
 Nothing changed
+
+
+Logs for test 3
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+
+
+Logs for test 2
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 3 has been overwritten
+Card number 4 has been overwritten
+Nothing changed
+Card number 1 has been overwritten
+Nothing changed
+Card number 3 has been overwritten
+Nothing changed
+Nothing changed
+
+
+Logs for test 3
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+
+
+Logs for test 2
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 3 has been overwritten
+Card number 4 has been overwritten
+Nothing changed
+Card number 1 has been overwritten
+Nothing changed
+Card number 3 has been overwritten
+Nothing changed
+Nothing changed
+
+
+Logs for test 3
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
+Card number 1 has been overwritten
+Card number 2 has been overwritten
 
 
 Logs for test 2

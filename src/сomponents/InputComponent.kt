@@ -45,7 +45,8 @@ fun checkActInput(splitStringWithSizes : List<String>,
     // Каждая из строк должна быть числом
     for (string in splitStringWithSizes) {
         if (!checkIfStringNumber(string)) {
-            println("String $string in test number $testNumber on string number ${testNumber * 2} is not numeric")
+            println("Number $string in test number $testNumber is not numeric.\n" +
+                    "Found in input file on string ${testNumber * 2}")
             return false
         }
     }
@@ -82,7 +83,7 @@ fun readInputFile(fileName: String) : List<Act> {
 
         // Проверка теста на правильность(соответствие входным данным)
         // Если какой-то из тестов введен неверно, то обозначим его как неверный
-        if (!checkActInput(splitStringWithSizes, splitStringWithPageNumbers, testNumber)) {
+        if (!checkActInput(splitStringWithSizes, splitStringWithPageNumbers, testNumber + 1)) {
             acts.add(Act(listOf(), -1, -1))
             continue
         }
