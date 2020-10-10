@@ -43,25 +43,5 @@ internal class OPTKtTest {
         Assertions.assertEquals(findNextAppeal(page, currentAppeal, act), 7)
     }
 
-    @Test
-    fun executeOPTONTEST1Sample1() { // Тест с циклической последовательностью обращений(см. тест 1)
-        val acts = readInputFile("data/tests/test1.txt")
-        val actual : List<Int> = executeOPT(acts[0])
-        val expected : List<Int> = listOf(1, 2, 3, 4, 4, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0)
-        Assertions.assertEquals(expected, actual)
-    }
-    @Test
-    fun executeOPTONTEST2Sample1() { // Тест, где есть места, когда не нужно что-то менять в FIFO(операция 1 типа)
-        val acts = readInputFile("data/tests/test2.txt")
-        val actual : List<Int> = executeOPT(acts[0])
-        val expected : List<Int> = listOf(1, 2, 3, 0, 3, 0, 0, 0)
-        Assertions.assertEquals(expected, actual)
-    }
-    @Test
-    fun executeOPTONTEST2Sample3() { // Тест с миксованной последовательностью обращений(см. тест 2 пример 3)
-        val acts = readInputFile("data/tests/test2.txt")
-        val actual : List<Int> = executeOPT(acts[2])
-        val expected : List<Int> = listOf(1, 2, 1, 1, 0, 1, 1, 1)
-        Assertions.assertEquals(expected, actual)
-    }
+
 }
