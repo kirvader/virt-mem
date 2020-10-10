@@ -21,13 +21,12 @@ fun findOPTPage(nextAppeal : List<Int>, frameForPage : List<Int>) : Int {
 // Если больше она не встретится, то возвращается индекс конца списка + 1(Бесконечность)
 fun findNextAppeal(page : Int, currentAppeal : Int, act: Act): Int {
     var indexInAct = currentAppeal + 1
-    while (indexInAct < act.pages.size && act.pages[indexInAct] != page) {
-        indexInAct++
-    }
+    while (indexInAct < act.pages.size && act.pages[indexInAct] != page) indexInAct++
     return indexInAct
 }
 
 // Функция симулирующая работу OPT алгоритма
+
 fun executeOPT(act : Act): List<Int> {
     val pageInFrame = MutableList(act.framesNumber + 1) {0}
     val frameForPage = MutableList(act.pageNumber + 1) {0}

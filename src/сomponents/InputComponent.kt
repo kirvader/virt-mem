@@ -43,7 +43,7 @@ fun checkActInput(splitStringWithSizes : List<String>,
         return false
     }
     // Каждая из строк должна быть числом
-    for (string in splitStringWithSizes) {
+    splitStringWithSizes.forEach { string ->
         if (!checkIfStringNumber(string)) {
             println("Number $string in test number $testNumber is not numeric.\n" +
                     "Found in input file on string ${testNumber * 2}")

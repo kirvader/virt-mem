@@ -2,20 +2,17 @@ import сomponents.Act
 import java.util.*
 
 // Функция, которая по данным, о том какими страницами заняты кадры возвращает индекс первого свободного кадра
-fun findIndexOfEmptyFrame(pageInFrame : List<Int>): Int {
-    for (index in 1..pageInFrame.lastIndex) {
-        if (pageInFrame[index] == 0) return index
-    }
-    return 0
-}
+fun findIndexOfEmptyFrame(pageInFrame : List<Int>): Int =
+        (1..pageInFrame.lastIndex).firstOrNull { pageInFrame[it] == 0 }
+                ?: 0
 
 // Функция, которая симулирует работу FIFO алгоритма
 fun executeFIFO(act : Act): List<Int> {
     // Это очередь состоящая из страниц, которые занимают какой-то кадр
-    val currentListOfPages : Queue<Int> = LinkedList<Int>()
-    val frameForPage = MutableList<Int>(act.pageNumber + 1) {0}
-    val pageInFrame = MutableList<Int>(act.framesNumber + 1) {0}
-    var substitutionsList = mutableListOf<Int>()
+    val currentListOfPages : Queue<Int> = LinkedList()
+    val frameForPage = MutableList(act.pageNumber + 1) {0}
+    val pageInFrame = MutableList(act.framesNumber + 1) {0}
+    val substitutionsList = mutableListOf<Int>()
     for (nextPage in act.pages) {
         // если страница уже загружена в оперативную память, то ничего не делаем
         if (currentListOfPages.contains(nextPage)) {

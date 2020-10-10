@@ -39,10 +39,6 @@ fun main(args : Array<String>) {
 
 // Функция, которая вычисляет количество замещений, по результату работа алгоритма
 fun countSubstitutions(results : List<Int>) : Int {
-    var substitutions = 0
-    for (result in results) {
-        if (result != 0) substitutions++
-    }
-    return substitutions
+    return results.count { it != 0 }
 }
 

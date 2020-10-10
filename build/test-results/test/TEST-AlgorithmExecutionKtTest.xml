@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AlgorithmExecutionKtTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2020-10-10T11:56:58" hostname="DESKTOP-TUE115E" time="0.06">
+  <properties/>
+  <testcase name="executeFIFOONTEST2Sample1()" classname="AlgorithmExecutionKtTest" time="0.044"/>
+  <testcase name="executeFIFOONTEST2Sample3()" classname="AlgorithmExecutionKtTest" time="0.001"/>
+  <testcase name="executeOPTONTEST2Sample1()" classname="AlgorithmExecutionKtTest" time="0.001"/>
+  <testcase name="executeOPTONTEST2Sample3()" classname="AlgorithmExecutionKtTest" time="0.001"/>
+  <testcase name="executeLRUONTEST2Sample1()" classname="AlgorithmExecutionKtTest" time="0.001"/>
+  <testcase name="executeLRUONTEST2Sample3()" classname="AlgorithmExecutionKtTest" time="0.001"/>
+  <testcase name="executeFIFOONTEST1Sample1()" classname="AlgorithmExecutionKtTest" time="0.001"/>
+  <testcase name="executeOPTONTEST1Sample1()" classname="AlgorithmExecutionKtTest" time="0.002"/>
+  <testcase name="executeLRUONTEST1Sample1()" classname="AlgorithmExecutionKtTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
