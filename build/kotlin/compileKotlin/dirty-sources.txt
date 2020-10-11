@@ -1,0 +1,16 @@
+/home/kira/prog-2020-virt-mem-kirvader/src/сomponents/Act.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/AlgorithmExecutionKtTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/LRUKtTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/сomponents/OutputComponent.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/сomponents/InputComponent.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/FIFO.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/OPTKtTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/OPT.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/FIFOKtTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/сomponents/InputComponentKtTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/LRU.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/algorithmExecution.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/VirtualMemoryTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/test/kotlin/сomponents/OutputComponentKtTest.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/VirtualMemory.kt
+/home/kira/prog-2020-virt-mem-kirvader/src/сomponents/TestGenerator.kt
