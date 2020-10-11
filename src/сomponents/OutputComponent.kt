@@ -2,9 +2,10 @@ package сomponents
 
 import java.io.File
 
+
 // Функция, которая задает путь до файла output.txt в той же папке что и входные данные
 fun createPathToOutputFile(InputFilename : String, outputFileEnding : String): File {
-    return File(InputFilename).resolve("../output$outputFileEnding.txt")
+    return File(File(InputFilename).parent + "/output$outputFileEnding.txt")
 }
 
 // функция, которая чистит файл

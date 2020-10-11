@@ -10,22 +10,23 @@ fun main(args : Array<String>) {
         generateTest(args)
     }
     // Чтение входных данных из файла, указанного в аргументах
-    val acts = readInputFile(args[0])
+    val inputFilename = args[0]
+    val acts = readInputFile(inputFilename)
     for (actNumber in 0..acts.lastIndex) {
         // Симуляция может пройти только если входные данные заданы верно.
         if (acts[actNumber].pageNumber != -1) {
             // Симуляция алгоритмов на данном примере
-            val resultsOfFIFO = executeFIFO(acts[actNumber])
-            val resultsOfLRU = executeLRU(acts[actNumber])
-            val resultsOfOPT = executeOPT(acts[actNumber])
+            val resultsOfFIFO = executeAlgorithm(acts[actNumber], Algorithms.FIFO)
+            val resultsOfLRU = executeAlgorithm(acts[actNumber], Algorithms.LRU)
+            val resultsOfOPT = executeAlgorithm(acts[actNumber], Algorithms.OPT)
 
             // Вывод логов в отдельный файл для каждого алгоритма
             outputLogsOfAlgo(resultsOfFIFO, actNumber == 0,
-                    createPathToOutputFile(args[0], "FIFO"), actNumber + 1)
+                    createPathToOutputFile(inputFilename, "FIFO"), actNumber + 1)
             outputLogsOfAlgo(resultsOfLRU, actNumber == 0,
-                    createPathToOutputFile(args[0], "LRU"), actNumber + 1)
+                    createPathToOutputFile(inputFilename, "LRU"), actNumber + 1)
             outputLogsOfAlgo(resultsOfOPT, actNumber == 0,
-                    createPathToOutputFile(args[0], "OPT"), actNumber + 1)
+                    createPathToOutputFile(inputFilename, "OPT"), actNumber + 1)
             // Вывод общего сравнения алгоритмов на данном тесте
             println("On test number ${actNumber + 1}:")
             println("FIFO algorithm made ${countSubstitutions(resultsOfFIFO)} substitutions")

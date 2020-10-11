@@ -30,10 +30,8 @@ fun executeAlgorithm(act : Act, algorithm : Algorithms): List<Int> {
         val nextPage = act.pages[indexInAct]
         // Если эта страница уже загружена, то ничего делать не нужно
         if (frameForPage[nextPage] != 0) {
-            when (algorithm) {
-                Algorithms.OPT -> { secondaryListForOPT[nextPage] = findNextAppeal(nextPage, indexInAct, act) }
-                Algorithms.LRU -> { secondaryListForLRU[frameForPage[nextPage]] = indexInAct }
-            }
+            if (algorithm == Algorithms.OPT) { secondaryListForOPT[nextPage] = findNextAppeal(nextPage, indexInAct, act) }
+            else if (algorithm == Algorithms.LRU) { secondaryListForLRU[frameForPage[nextPage]] = indexInAct }
             substitutionsList.add(0)
             continue
         }
