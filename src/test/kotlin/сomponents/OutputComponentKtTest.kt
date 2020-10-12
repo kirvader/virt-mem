@@ -1,10 +1,11 @@
 package сomponents
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 import java.io.File
 
-
+@Tag("unitTest")
 internal class OutputComponentKtTest {
     @Test
     fun createPathToOutputFileRelative() {

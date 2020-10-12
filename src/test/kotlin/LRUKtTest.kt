@@ -1,8 +1,10 @@
 import сomponents.readInputFile
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 
 
+@Tag("unitTest")
 internal class LRUKtTest {
 
     @Test
