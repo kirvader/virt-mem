@@ -12,6 +12,9 @@ fun main(args : Array<String>) {
     // Чтение входных данных из файла, указанного в аргументах
     val inputFilename = args[0]
     val acts = readInputFile(inputFilename)
+    clearOutputFile(createPathToOutputFile(inputFilename, "FIFO"))
+    clearOutputFile(createPathToOutputFile(inputFilename, "LRU"))
+    clearOutputFile(createPathToOutputFile(inputFilename, "OPT"))
     for (actNumber in 0..acts.lastIndex) {
         // Симуляция может пройти только если входные данные заданы верно.
         if (acts[actNumber].pageNumber != -1) {
@@ -21,11 +24,11 @@ fun main(args : Array<String>) {
             val resultsOfOPT = executeAlgorithm(acts[actNumber], Algorithms.OPT)
 
             // Вывод логов в отдельный файл для каждого алгоритма
-            outputLogsOfAlgo(resultsOfFIFO, actNumber == 0,
+            outputLogsOfAlgo(resultsOfFIFO,
                     createPathToOutputFile(inputFilename, "FIFO"), actNumber + 1)
-            outputLogsOfAlgo(resultsOfLRU, actNumber == 0,
+            outputLogsOfAlgo(resultsOfLRU,
                     createPathToOutputFile(inputFilename, "LRU"), actNumber + 1)
-            outputLogsOfAlgo(resultsOfOPT, actNumber == 0,
+            outputLogsOfAlgo(resultsOfOPT,
                     createPathToOutputFile(inputFilename, "OPT"), actNumber + 1)
             // Вывод общего сравнения алгоритмов на данном тесте
             println("On test number ${actNumber + 1}:")

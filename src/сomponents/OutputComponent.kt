@@ -14,8 +14,7 @@ fun clearOutputFile(outputFile : File) {
 }
 
 // Вывод логов(подробной информации о симуляции алгоритма) и сообщения о местоположении файла
-fun outputLogsOfAlgo(logs : List<Int?>, needClear : Boolean, outputFile: File, testNumber : Int) {
-    if (needClear) clearOutputFile(outputFile)
+fun outputLogsOfAlgo(logs : List<Int?>, outputFile: File, testNumber : Int) {
     outputFile.appendText("Logs for test $testNumber\n")
     for (value in logs) {
         if (value == 0) {
