@@ -50,6 +50,6 @@ jar {
 }
 
 task intTest(type: Exec) {
-    commandLine './integrationTesting.sh'
+    commandLine 'bash', 'integrationTesting.sh'
 }
 check.dependsOn intTest
