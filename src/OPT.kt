@@ -9,10 +9,6 @@ fun findOPTPage(nextAppeal : List<Int>, frameForPage : List<Int>) : Int {
         if (frameForPage[pageNumber] == 0) continue
         if (nextAppeal[pageNumber] > nextAppeal[optPage]) {
             optPage = pageNumber
-        } else {
-            if (frameForPage[pageNumber] < frameForPage[optPage]) {
-                optPage = pageNumber
-            }
         }
     }
     return optPage
