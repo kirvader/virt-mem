@@ -1,0 +1,11 @@
+language: java
+
+before_script:
+  - ./gradlew jar
+
+install: true
+
+dist: focal
+
+script:
+  - bash integrationTesting.sh
