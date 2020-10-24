@@ -1,7 +1,7 @@
 language: java
 
 before_script:
-  - ./gradlew jar
+  - gradle jar
 
 install: true
 
