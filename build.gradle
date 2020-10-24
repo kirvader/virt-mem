@@ -28,21 +28,28 @@ sourceSets {
     main.java.srcDirs = ['src/']
 }
 
-testSets {
-    integrationTest { dirName = 'integration-test' }
-}
-
-check.dependsOn integrationTest
-integrationTest.mustRunAfter test
-
-integrationTest {
+test{
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
     useJUnitPlatform {
-        includeTags 'integrationTest'
     }
 }
 
-test {
-    useJUnitPlatform {
-        includeTags 'unitTest'
+jar {
+    manifest {
+        attributes 'Main-Class': "VirtualMemory"
+    }
+
+    from sourceSets.main.output
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
     }
 }
+
+task intTest(type: Exec) {
+    commandLine 'bash', 'integrationTesting.sh'
+}
+check.dependsOn intTest

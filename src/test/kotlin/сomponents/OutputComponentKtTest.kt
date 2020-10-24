@@ -9,14 +9,14 @@ import java.io.File
 internal class OutputComponentKtTest {
     @Test
     fun createPathToOutputFileRelative() {
-        Assertions.assertEquals(createPathToOutputFile("data/input.txt", "Relative"), File("data/outputRelative.txt"))
+        Assertions.assertEquals(createPathToOutputFile("data/input.txt", "Relative"), File("data/output-inputRelative.txt"))
     }
     @Test
     fun createPathToOutputFileRelativeGenerated() {
-        Assertions.assertEquals(createPathToOutputFile("data/inputGenerated.txt", "Relative"), File("data/outputRelative.txt"))
+        Assertions.assertEquals(createPathToOutputFile("data/inputGenerated.txt", "Relative"), File("data/output-inputGeneratedRelative.txt"))
     }
     @Test
     fun createPathToOutputFileAbsolute() {
-        Assertions.assertEquals(createPathToOutputFile("/home/kira/prog-2020-virt-mem-kirvader/data/input.txt", "Relative"), File("/home/kira/prog-2020-virt-mem-kirvader/data/outputRelative.txt"))
+        Assertions.assertEquals(createPathToOutputFile("/home/kira/prog-2020-virt-mem-kirvader/data/input.txt", "Relative"), File("/home/kira/prog-2020-virt-mem-kirvader/data/output-inputRelative.txt"))
     }
 }

@@ -69,7 +69,7 @@ internal class AlgorithmExecutionKtTest {
     fun executeOPTONTEST2Sample3() { // Тест с миксованной последовательностью обращений(см. тест 2 пример 3)
         val acts = readInputFile("data/tests/test2.txt")
         val actual : List<Int> = executeAlgorithm(acts[2], Algorithms.OPT)
-        val expected : List<Int> = listOf(1, 2, 1, 1, 0, 1, 1, 1)
+        val expected : List<Int> = listOf(1, 2, 1, 1, 0, 2, 2, 2)
         Assertions.assertEquals(expected, actual)
     }
 }
